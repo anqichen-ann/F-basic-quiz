@@ -1,3 +1,70 @@
 @import "variables";
 @import "mixins";
 @import "reboot";
+
+main {
+  width: 980px;
+  margin: 80px auto 20px;
+  padding: 0 20px 20px;
+  background-color: $white;
+}
+
+.header {
+  text-align: center;
+}
+.header img {
+  width: $image-size;
+  height: $image-size;
+  border-radius: 50%;
+  margin-top: -50px;
+}
+hr {
+  height: 5px;
+  background-color: $gray-light;
+  border-style: none;
+}
+.about {
+  margin-bottom: 30px;
+  color: $color-base;
+}
+
+.about h3,
+.article h3 {
+  color: $primary-color;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.article {
+  color: $color-base;
+}
+
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.edu-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.year {
+  margin-top: 0;
+  align-self: flex-start;
+}
+
+.edu-desc {
+  background-color: $gray-light;
+  width: 80%;
+}
+.edu-desc h4 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.edu-desc p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
