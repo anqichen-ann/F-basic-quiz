@@ -1,35 +1,32 @@
+import axios from "axios";
+
 
 $(function(){
   let pathname = "/users/1"
-  getInfo(pathname);
+  getUserInfo(pathname);
+  getEduInfo(pathname);
 })
 
-export default function getInfo(pathname){
+ function getUserInfo(pathname){
  const url1 = `http://localhost:8080${pathname}`;
-  const url2 = `http://localhost:8080${pathname}/educations`;
-        $.ajax({
-          type: "GET",
-          url: url1,
-          dataType: "json",
-          success: function (data) {
-            let user = data;
+
+        axios.get(url1).then(
+          (response) => {
+            let user = response.data;
             $("img").attr("src", user.avatar);
             $(".title").html(
               `MY NAME IS ${user.name} ${user.age}YO AND THIS IS MY RESUME/CV`
             );
             $(".desc").html(user.description);
-          },
-          error: function (xhr) {
-            console.log(xhr);
-          },
-        });
-  
-        $.ajax({
-          type: "GET",
-          url: url2,
-          dataType: "json",
-          success: function (data) {
-            let eduList = data;
+          });
+}
+
+  function getEduInfo(pathname){
+  const url2 = `http://localhost:8080${pathname}/educations`;
+
+        axios.get(url2).then(
+        (response) => {
+          let eduList = response.data;
             eduList.forEach((edu) => {
               $(".edu-list").append(`
             <li>
@@ -40,10 +37,8 @@ export default function getInfo(pathname){
                 </div>
             </li>`);
             });
-          },
-          error: function (xhr) {
-            console.log(xhr);
-          },
         });
+
       }
 
+export {getUserInfo, getEduInfo};
