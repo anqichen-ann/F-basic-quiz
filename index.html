@@ -8,6 +8,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Resume</title>
+
   </head>
   <body>
     <main>
@@ -21,59 +22,18 @@
       </header>
       <section class="about">
         <h3>ABOUT ME</h3>
-        <p class="desc">descption</p>
+        <p class="desc"></p>
       </section>
       <article class="article">
         <h3>EDUCATION</h3>
         <ul class="edu-list"></ul>
       </article>
     </main>
-    <script src="src/app.js"></script>
     <script
       type="text/javascript"
       src="http://code.jquery.com/jquery-latest.js"
     ></script>
-    <script>
-      const url1 = `http://localhost:8080${window.location.pathname}`;
-      const url2 = `http://localhost:8080${window.location.pathname}/educations`;
-      $.ajax({
-        type: "GET",
-        url: url1,
-        dataType: "json",
-        success: function (data) {
-          let user = data;
-          $("img").attr("src", user.avatar);
-          $(".title").html(
-            `MY NAME IS ${user.name} ${user.age}YO AND THIS IS MY RESUME/CV`
-          );
-          $(".desc").html(user.description);
-        },
-        error: function (xhr) {
-          console.log(xhr);
-        },
-      });
-
-      $.ajax({
-        type: "GET",
-        url: url2,
-        dataType: "json",
-        success: function (data) {
-          let eduList = data;
-          eduList.forEach((edu) => {
-            $(".edu-list").append(`
-          <li>
-            <p class="year">${edu.year}</p>
-            <div class="edu-desc">
-              <h4>${edu.title}</h4>
-              <p >${edu.description}</p>
-              </div>
-          </li>`);
-          });
-        },
-        error: function (xhr) {
-          console.log(xhr);
-        },
-      });
-    </script>
+    <script src="src/app.js"></script>
+    <script  type="text/javascript" src="src/index.js"  ></script>
   </body>
 </html>
