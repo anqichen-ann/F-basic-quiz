@@ -1,7 +1,7 @@
 @import "variables";
 @import "mixins";
 @import "reboot";
-
+// TODO GTB-3: - 没有按照模块拆分样式表
 main {
   width: 980px;
   margin: 80px auto 20px;
